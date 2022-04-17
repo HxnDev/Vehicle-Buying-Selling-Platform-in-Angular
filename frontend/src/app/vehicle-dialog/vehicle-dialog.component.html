@@ -1,0 +1,60 @@
+<body class="dialog-body">
+<h2 mat-dialog-title>Vehicle Details</h2>
+
+<mat-dialog-content class="dialog">
+
+  <h3>{{vehicle.make}} {{vehicle.title}} {{vehicle.model}} - {{vehicle.year}}</h3>
+  <img mat-card-image src="{{vehicle.img_path}}">
+
+  <mat-grid-list cols="3" rowHeight="50px">
+    <mat-grid-tile><span class="descriptor">Price</span>: Rs. {{vehicle.price}}</mat-grid-tile>
+    <mat-grid-tile><span class="descriptor">Location</span>: {{vehicle.location}}</mat-grid-tile>
+    <mat-grid-tile><span class="descriptor">Model</span>: {{vehicle.model}}</mat-grid-tile>
+
+    <mat-grid-tile><span class="descriptor">Date</span>: {{vehicle.date}}</mat-grid-tile>
+    <mat-grid-tile><span class="descriptor">Rating</span>: {{vehicle.rating}}/5</mat-grid-tile>
+    <mat-grid-tile><span class="descriptor">Mileage</span>: {{vehicle.mileage}}</mat-grid-tile>
+
+    <mat-grid-tile><span class="descriptor">Colour</span>: {{vehicle.color}}</mat-grid-tile>
+    <mat-grid-tile><span class="descriptor">Transmission</span>: {{vehicle.transmission}}</mat-grid-tile>
+    <mat-grid-tile><span class="descriptor">Registered in</span>: {{vehicle.registered}}</mat-grid-tile>
+
+    <mat-grid-tile><span class="descriptor">Assembly</span>: {{vehicle.assembly}}</mat-grid-tile>
+    <mat-grid-tile><span class="descriptor">Engine Capacity</span>: {{vehicle.engine_capacity}}</mat-grid-tile>
+    <mat-grid-tile><span class="descriptor">Last Updated</span>: {{vehicle.last_updated}}</mat-grid-tile>
+  </mat-grid-list>
+
+  <hr><br>
+
+  <div class="features">
+    <span class="descriptor">Features</span>: {{vehicle.features}}
+  </div>
+
+  <br>
+
+  <div>
+    <span class="descriptor">Overall Condition</span>: {{vehicle.condition}}
+  </div>
+
+  <br><hr><br>
+
+  <h3><b>Seller Information</b></h3>
+
+  <mat-grid-list cols="1" rowHeight="50px">
+    <mat-grid-tile><span class="descriptor">Contact No</span>: {{vehicle.seller_number}}</mat-grid-tile>
+    <mat-grid-tile><span class="descriptor">Email</span>: {{vehicle.seller_email}}</mat-grid-tile>
+    <mat-grid-tile><span class="descriptor">Location</span>: {{vehicle.seller_location}}</mat-grid-tile>
+    <mat-grid-tile><span class="descriptor">Contact Hours</span>: {{vehicle.seller_hours}}</mat-grid-tile>
+  </mat-grid-list>
+
+  <hr><br>
+
+  <p><span class="descriptor">Comments on vehicle</span>: {{vehicle.seller_comments}}</p>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="center" >
+  <button class="mat-raised-button"(click)="close()">Close</button>
+</mat-dialog-actions>
+
+</body>

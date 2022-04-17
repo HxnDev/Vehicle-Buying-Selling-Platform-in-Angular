@@ -1,0 +1,119 @@
+
+
+<body>
+
+    <mat-toolbar>
+      Buy & Sell Vehicles
+    </mat-toolbar>
+  
+    <div class="search">
+      <mat-form-field>
+        <mat-label>City</mat-label>
+        <mat-select [(value)]="selectedCity" [(ngModel)]="selectedCity">
+          <mat-option>None</mat-option>
+          <mat-option value="Islamabad">Islamabad</mat-option>
+          <mat-option value="Rawalpindi">Rawalpindi</mat-option>
+          <mat-option value="Lahore">Lahore</mat-option>
+          <mat-option value="Karachi">Karachi</mat-option>
+          <mat-option value="Peshawar">Peshawar</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Manufacturer</mat-label>
+        <mat-select [(value)]="selectedMake" [(ngModel)]="selectedMake">
+          <mat-option>None</mat-option>
+          <mat-option value="Honda">Honda</mat-option>
+          <mat-option value="Suzuki">Suzuki</mat-option>
+          <mat-option value="Audi">Audi</mat-option>
+          <mat-option value="Diahatsu">Diahatsu</mat-option>
+          <mat-option value="Kia">Kia</mat-option>
+          <mat-option value="Hyundai">Hyundai</mat-option>
+          <mat-option value="Toyota">Toyota</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Price</mat-label>
+        <mat-select [(value)]="selectedPriceRange" [(ngModel)]="selectedPriceRange">
+          <mat-option>None</mat-option>
+          <mat-option value=1000000> <= Rs. 1000000</mat-option>
+          <mat-option value=3000000> <= Rs. 3000000</mat-option>
+          <mat-option value=5000000> <= Rs. 5000000</mat-option>
+          <mat-option value=8000000> <= Rs. 8000000</mat-option>
+          <mat-option value=10000000> <= Rs. 10000000</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Year</mat-label>
+        <input type="number" maxlength=4 matInput [(ngModel)]="selectedYear" placeholder="E.g. 2014">
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Mileage</mat-label>
+        <input type="number" matInput [(ngModel)]="selectedMileage" placeholder="Max mileage e.g. 20000">
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Color</mat-label>
+        <input type="text" matInput [(ngModel)]="selectedColor" placeholder="E.g. White">
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Engine Capacity</mat-label>
+        <input type="text" matInput [(ngModel)]="selectedEngCap" placeholder="E.g. 1000 cc">
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Type</mat-label>
+        <mat-select [(value)]="selectedType" [(ngModel)]="selectedType">
+          <mat-option>None</mat-option>
+          <mat-option value="car">Car</mat-option>
+          <mat-option value="bike">Bike</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Rating</mat-label>
+        <mat-select [(value)]="selectedRating" [(ngModel)]="selectedRating">
+          <mat-option>None</mat-option>
+          <mat-option value="1">1</mat-option>
+          <mat-option value="2">2</mat-option>
+          <mat-option value="3">3</mat-option>
+          <mat-option value="4">4</mat-option>
+          <mat-option value="5">5</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <button mat-button class="search-button" (click)="filterVehicles()">
+        <mat-icon>search</mat-icon>
+      </button>
+  
+    </div>
+  
+    <div class="content">
+      <div fxLayout="row wrap" fxLayoutGap="20px grid">
+        <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let vehicle of vehicles; let i = index">
+          <mat-card class="mat-elevation-z4" (click)="openDialog(vehicles[i])">
+            <mat-card-header>
+              <mat-card-title>{{vehicle.title}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="{{vehicle.img_path}}">
+            <mat-card-content>
+              <mat-grid-list cols="2" rowHeight="40px">
+                <mat-grid-tile><span class="descriptor">Price</span>: Rs. {{vehicle.price}}</mat-grid-tile>
+                <mat-grid-tile><span class="descriptor">Location</span>: {{vehicle.location}}</mat-grid-tile>
+                <mat-grid-tile><span class="descriptor">Date</span>: {{vehicle.date}}</mat-grid-tile>
+                <mat-grid-tile><span class="descriptor">Rating</span>: {{vehicle.rating}}/5</mat-grid-tile>
+              </mat-grid-list>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  
+  </body>
+  
+  
+  
