@@ -4,8 +4,11 @@
 <mat-dialog-content class="dialog">
 
   <h3>{{vehicle.make}} {{vehicle.title}} {{vehicle.model}} - {{vehicle.year}}</h3>
+  <div class="img-div">
+    
+  
   <img mat-card-image src="{{vehicle.img_path}}">
-
+</div>
   <mat-grid-list cols="3" rowHeight="50px">
     <mat-grid-tile><span class="descriptor">Price</span>: Rs. {{vehicle.price}}</mat-grid-tile>
     <mat-grid-tile><span class="descriptor">Location</span>: {{vehicle.location}}</mat-grid-tile>
